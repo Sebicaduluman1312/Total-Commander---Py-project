@@ -13,6 +13,12 @@
         <div class="top">
             <img src="../static/images/logo.png" class="logo">
             <h1>Total Commander</h1>
+            <div class="create-block">
+                <img src="../static/images/create_folder.png" alt="" class="create_folder">
+                <img src="../static/images/create_file.png" alt="" class="create_file">
+                <img src="../static/images/edit_file.png" alt="" class="edit_file">
+                <img src="" alt="">
+            </div>
         </div>
 
         <div class="middle">
@@ -73,10 +79,42 @@
 
         <div class="bottom">
 
+            <button>Copy</button>
+            <button>Move</button>
+            <button>Delete</button>
+            <button>Rename</button>
+    
+
         </div>
 
     </div>
+    <div class="modal-folder">
+        <div class="create-folder-content">
+            <div class="close-modal">Close</div>
+            <div><b>Name of folder: </b><input type="text" name="" id="newFolder"></div>
+            <div><b>Select panel: </b> 
+                <select name="panel-selector" id="selector-panel">
+                    <option value="1">Panel 1</option>
+                    <option value="2">Panel 2</option>
+                </select></div>
+            <button class="submit-name">Submit</button>
+        </div>
+    </div>
+    <div class="modal-file">
+        <div class="create-file-content">
+            <div class="close-modal-file">Close</div>
+            <div><b>Name of file: </b><input type="text" name="" id="newFile"></div>
+            <div><b>Select panel: </b> 
+                <select name="panel-selector-file" id="selector-panel-file">
+                    <option value="1">Panel 1</option>
+                    <option value="2">Panel 2</option>
+                </select></div>
+            <button class="submit-name-file">Submit</button>
+        </div>
+    </div>
+    
 
     <script src="../static/js/folder_selection.js"></script>
+    <script src="../static/js/create_operations.js"></script>
 </body>
 </html>

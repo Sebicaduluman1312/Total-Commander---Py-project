@@ -23,3 +23,18 @@ li{
 .logo{
     margin-left: 3%;
 }
+
+button{
+    height: 40px;
+    width: 80px;
+    border-radius: 12px;
+    background-color: #182229; 
+    color: #fff; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+button:hover{
+    background-color: #2980b9;
+}
