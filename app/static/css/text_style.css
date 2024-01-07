@@ -1,0 +1,25 @@
+h1{
+    margin: 0;
+    padding: 0;
+    color: white;
+    margin-left: 2%;
+}
+
+p{
+    margin-left: 5%;
+}
+
+li{
+    height: 30px;
+    color: white;
+    padding: 4px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 2px #333;
+}
+
+.logo{
+    margin-left: 3%;
+}

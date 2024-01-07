@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Commander</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/text_style.css">
+</head>
+<body>
+    <div class="main">
+
+        <div class="top">
+            <img src="../static/images/logo.png" class="logo">
+            <h1>Total Commander</h1>
+        </div>
+
+        <div class="middle">
+
+            <div class="left-panel">
+
+                <div class="navigation">
+                    <div class="left-curent-path">
+                        <input class="first_input", type="text", value={{path_left}} readonly>
+                    </div>
+                    <div class="select-folder">
+                        &#9759;
+                    </div>
+                </div>
+
+                <ul class="left-panel-list">
+                    {% if return_to_previous_left == 1%}
+                        <li class="return">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.. </li>
+                    {% endif %}
+                    {% for item in items_left%}
+                        <li>
+                            <div class="icon"><img src="{{ info_left[loop.index-1]['icon'] }}"></div>
+                            <div class="name">{{item}}</div> 
+                            <div class="information">{{info_left[loop.index-1]['tip']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_left[loop.index-1]['MB']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_left[loop.index-1]['date_time']}}</div>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+            <div class="right-panel">
+
+                <div class="navigation">
+                    <div class="right-curent-path">
+                        <input class="second_input", type="text", value={{path_right}} readonly>
+                    </div>
+                    <div class="select-folder">
+                        &#9759;
+                    </div>
+                </div>
+
+                <ul class="right-panel-list"> 
+                    {% if return_to_previous_right == 1%}
+                        <li class="return">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.. </li>
+                    {% endif %}
+                    {% for item in items_right%}
+                        <li>
+                            <div class="icon"><img src="{{ info_right[loop.index-1]['icon'] }}"></div>
+                            <div class="name">{{item}}</div> 
+                            <div class="information">{{info_right[loop.index-1]['tip']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_right[loop.index-1]['MB']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_right[loop.index-1]['date_time']}}</div>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="bottom">
+
+        </div>
+
+    </div>
+
+    <script src="../static/js/folder_selection.js"></script>
+</body>
+</html>

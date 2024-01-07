@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.main{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.top{
+    margin: 0;
+    padding: 0;
+    height: 7%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.middle{
+    margin: 0;
+    padding: 0;
+    height: 86%;
+    width: 100%;
+    display: flex;
+}
+
+.left-panel{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #999999;
+    border-right: 3px solid #333;
+    overflow: auto;
+}
+
+.left-panel-list,
+.right-panel-list{
+    margin: 0;
+    padding: 0;
+}
+
+.right-panel{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #999999;
+    border-left: 3px solid #333;
+    overflow: auto;
+}
+
+.icon{
+    height: 80%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.name{
+    height: 100%;
+    width: 30%;
+    color:black;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.information{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+
+.bottom{
+    margin: 0;
+    padding: 0;
+    height: 7%;
+    width: 100%;
+    background-color: #555555;
+}
+
+input{
+    width: 90%;
+    height: 18px;
+}
+
+.navigation{
+    height: 22px;
+    width: 100%;
+    display: flex;
+}
+
+.select-folder{
+    height: 20px;
+    width: 10%;
+    background-color: rgb(63, 63, 63);
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.select-folder:hover{
+    color: black;
+    background-color: rgb(211, 211, 211);
+    cursor: pointer;
+}
+
+.left-curent-path,
+.right-curent-path{
+    width: 90%;
+}
+
+.name:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.return:hover{
+    color: red;
+    cursor: pointer;
+}
