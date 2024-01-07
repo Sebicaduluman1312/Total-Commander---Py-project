@@ -102,3 +102,26 @@ backToFolders.forEach(function(backToFolder){
 
 })
 
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+var left_panel_selected_items = [];
+var right_panel_selected_items = [];
+
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    if (checkbox.checked) {
+
+      name_of_parent = checkbox.parentElement.parentElement.parentElement.className
+
+      if (name_of_parent === 'left-panel-list') {
+        left_panel_selected_items.push(checkbox.name);
+      } else if (name_of_parent === 'right-panel-list') {
+        right_panel_selected_items.push(checkbox.name);
+      }
+
+    } else {
+    }
+
+    console.log('left_panel_selected_items:', left_panel_selected_items);
+    console.log('right_panel_selected_items:', right_panel_selected_items);
+  });
+});

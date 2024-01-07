@@ -115,6 +115,10 @@ img{
     align-items: center;
 }
 
+.select-elem{
+    height: 70%;
+    width: 10%;
+}
 
 .bottom{
     margin: 0;

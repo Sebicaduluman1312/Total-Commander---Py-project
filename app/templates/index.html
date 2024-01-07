@@ -43,6 +43,9 @@
                             <div class="icon"><img src="{{ info_left[loop.index-1]['icon'] }}"></div>
                             <div class="name">{{item}}</div> 
                             <div class="information">{{info_left[loop.index-1]['tip']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_left[loop.index-1]['MB']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_left[loop.index-1]['date_time']}}</div>
+                            <div class="select-elem">
+                                <input type="checkbox" name={{item}}>
+                            </div>
                         </li>
                     {% endfor %}
 
@@ -69,6 +72,9 @@
                             <div class="icon"><img src="{{ info_right[loop.index-1]['icon'] }}"></div>
                             <div class="name">{{item}}</div> 
                             <div class="information">{{info_right[loop.index-1]['tip']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_right[loop.index-1]['MB']}}&nbsp;&nbsp;&nbsp;&nbsp;{{info_right[loop.index-1]['date_time']}}</div>
+                            <div class="select-elem">
+                                <input type="checkbox" name={{item}}>
+                            </div>
                         </li>
                     {% endfor %}
 
