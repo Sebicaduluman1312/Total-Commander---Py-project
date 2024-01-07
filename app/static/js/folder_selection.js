@@ -110,7 +110,7 @@ checkboxes.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
     if (checkbox.checked) {
 
-      name_of_parent = checkbox.parentElement.parentElement.parentElement.className
+      var name_of_parent = checkbox.parentElement.parentElement.parentElement.className
 
       if (name_of_parent === 'left-panel-list') {
         left_panel_selected_items.push(checkbox.name);
@@ -125,3 +125,4 @@ checkboxes.forEach(function(checkbox) {
     console.log('right_panel_selected_items:', right_panel_selected_items);
   });
 });
+

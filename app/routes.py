@@ -3,6 +3,7 @@ from app import app
 from flask import render_template
 from app.services.file_services import get_folder_content
 from app.services.create_operations import create_folder_path, create_file_path
+from app.services.file_operations import delete_panel_elements
 from app.utils.globals import globals_instance
 from flask import request, jsonify
 
@@ -66,3 +67,8 @@ def create_file():
 
     return jsonify({"status" : "succes", "message" : "The file was succesfully created"})
 
+@app.route("/delete_elements", methods=["GET", "POST"])
+def delete_elements():
+    data = request.get_json()
+    delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
+    return jsonify({"status" : "succes", "message" : "The files was succesfully deleted"})
