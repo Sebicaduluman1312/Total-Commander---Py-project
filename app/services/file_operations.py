@@ -49,31 +49,39 @@ def rename_element_path(old_name, new_name):
     except Exception as e:
         print("Eroare la functia de rename a elementului!")
 
+
 def recursive_copy(start, end):
     for route in start:
-        if os.path.isdir(route):
-            try:
-                name_of_folder = os.path.basename(route)
-                path_to_create_dir = end + '/' + name_of_folder
-                os.mkdir(path_to_create_dir)
+        try:
+            if os.path.isdir(route):
 
-                # cream lista start recursiv in care sa punem si path urile ca noi o sa avem doar numele
+                name_of_folder = os.path.basename(route)
+                path_to_create_dir = os.path.join(end, name_of_folder)
+                os.makedirs(path_to_create_dir, exist_ok=True)
+
                 list_of_content = os.listdir(route)
-                list_of_paths = [os.path.join(path_to_create_dir, name) for name in list_of_content]
+                list_of_paths = [os.path.join(route, name) for name in list_of_content]
 
                 recursive_copy(list_of_paths, path_to_create_dir)
-            except Exception as e:
-                print(f"A aparut o eroare la copierea serviciului, in copierea directorului: {e}!!!")
 
-        elif os.path.isfile(route):
-            try:
+            elif os.path.isfile(route):
                 with open(route, 'rb') as original_file_desc:
                     content = original_file_desc.read()
 
-                with open(end, 'wb') as destination_file_desc:
+                nume_fisier, _ = os.path.splitext(os.path.basename(route))
+                write_route = os.path.join(end, nume_fisier)
+
+                i = 1
+                while os.path.exists(write_route):
+                    write_route = os.path.join(end, f"{nume_fisier}_{i}")
+                    i += 1
+
+                write_route += os.path.splitext(route)[1]
+
+                with open(write_route, 'wb') as destination_file_desc:
                     destination_file_desc.write(content)
-            except FileNotFoundError:
-                print("Fisierul original nu exista")
-            except Exception as e:
-                print(f"Eroarea la copierea fisierului: {e}")
+
+        except Exception as e:
+            print(f"A apărut o eroare la copiere: {e} pentru sursa: {route}")
+
 

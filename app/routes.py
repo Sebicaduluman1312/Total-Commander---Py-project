@@ -67,11 +67,11 @@ def create_file():
 
     return jsonify({"status" : "succes", "message" : "The file was succesfully created"})
 
-# @app.route("/delete_elements", methods=["GET", "POST"])
-# def delete_elements():
-#     data = request.get_json()
-#     delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
-#     return jsonify({"status" : "succes", "message" : "The files was succesfully deleted"})
+@app.route("/delete_elements", methods=["GET", "POST"])
+def delete_elements():
+    data = request.get_json()
+    delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
+    return jsonify({"status" : "succes", "message" : "The files was succesfully deleted"})
 
 @app.route("/rename", methods=["GET","POST"])
 def rename_element():
@@ -82,9 +82,18 @@ def rename_element():
     return jsonify({"status" : "succes", "message" : "The element was succesfully renamed"})
 
 @app.route("/copy", methods=["GET","POST"])
-def copy_files():
+def copy_content():
     data = request.get_json()
 
     recursive_copy(data["start_path"], data["end_path"])
+
+    return jsonify({"status" : "succes", "message" : "The element was copied renamed"})
+
+@app.route("/move", methods=["GET","POST"])
+def move_content():
+    data = request.get_json()
+
+    recursive_copy(data["start_path"], data["end_path"])
+    delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
 
     return jsonify({"status" : "succes", "message" : "The element was copied renamed"})

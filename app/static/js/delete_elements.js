@@ -24,8 +24,10 @@ delBtn.addEventListener('click', function(){
             console.error('Eroare:', error)
         })
     }
+    else
+        alert("Select somethin to delete")
 
-    setTimeout(() => window.location.reload(), 1000);
+    setTimeout(() => window.location.reload(), 3000);
 
 
 })
