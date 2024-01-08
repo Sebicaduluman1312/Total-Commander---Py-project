@@ -9,6 +9,18 @@ from app.utils.globals import globals_instance
 
 @app.route("/", methods=['GET', 'POST'])
 def render_main_page():
+    '''
+        The specific function for the '/' route in which the move from one folder to another
+        is practically made, we take the parameters from the url, so we keep track of the current
+        path that we store in it global variable.
+        When we are not on the home path on both panels, we will render to a different
+        template in which we get the elements from the left and right panels, after which we
+        process them with Jinja on the html
+
+        :return: render_template
+
+
+    '''
     try:
         left_path = request.args.get('leftPath', default=globals_instance.home_path)
         right_path = request.args.get('rightPath', default=globals_instance.home_path)
@@ -65,6 +77,13 @@ def render_main_page():
 
 @app.route("/create_folder", methods=["GET", "POST"])
 def create_folder():
+    '''
+        The specific function of the /create_folder route in which you receive from the front
+        the name of the folder that will be created and the panel in which we want to perform
+        the operation
+
+        :return: return json to front
+    '''
     data = request.get_json()
     print('Date primite de pe front la create folder: ', data)
     if data['current_panel'] == '1':
@@ -78,6 +97,11 @@ def create_folder():
 
 @app.route("/create_file", methods=["GET", "POST"])
 def create_file():
+    """
+    Creates a new file.
+
+    :return: JSON response indicating the success or failure of the operation.
+    """
     data = request.get_json()
     if data['current_panel'] == '1':
         path_to_send = globals_instance.current_path_left
@@ -90,12 +114,22 @@ def create_file():
 
 @app.route("/delete_elements", methods=["GET", "POST"])
 def delete_elements():
+    """
+    Deletes the selected elements from the specified panels.
+
+    :return: JSON response with success message or an error message.
+    """
     data = request.get_json()
     delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
     return jsonify({"status" : "succes", "message" : "The files was succesfully deleted"})
 
 @app.route("/rename", methods=["GET","POST"])
 def rename_element():
+    """
+    Renames an element.
+
+    :return: JSON response indicating the success or failure of the operation.
+    """
     data = request.get_json()
 
     rename_element_path(data['old_value'], data['rename_value'])
@@ -104,6 +138,11 @@ def rename_element():
 
 @app.route("/copy", methods=["GET","POST"])
 def copy_content():
+    """
+   Copies the content from one location to another.
+
+   :return: JSON response with success message or an error message.
+   """
     data = request.get_json()
 
     recursive_copy(data["start_path"], data["end_path"])
@@ -112,6 +151,11 @@ def copy_content():
 
 @app.route("/move", methods=["GET","POST"])
 def move_content():
+    """
+    Moves the content from one location to another.
+
+    :return: JSON response with success message or an error message.
+    """
     data = request.get_json()
 
     recursive_copy(data["start_path"], data["end_path"])
@@ -121,12 +165,16 @@ def move_content():
 
 @app.route("/get_content", methods=["GET","POST"])
 def get_content():
+    """
+    Gets the content of a file.
+
+    :return: JSON response with the content of the file or an error message.
+    """
     data = request.get_json()
 
     path = data['path']
     content_of_file = get_file_content(path)
     print(content_of_file)
-
 
     if content_of_file is None:
         return jsonify({"status" : "error", "message" : "Eroare la citirea fisierului"})
@@ -138,6 +186,11 @@ def get_content():
 
 @app.route("/edit_file", methods=["GET","POST"])
 def edit_file():
+    """
+    Edits the content of a file.
+
+    :return: JSON response indicating the success or failure of the operation.
+    """
     data = request.get_json()
 
     print(data)

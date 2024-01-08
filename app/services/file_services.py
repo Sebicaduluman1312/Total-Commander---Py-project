@@ -5,6 +5,12 @@ from ..utils.globals import globals_instance
 
 
 def get_folder_content(path):
+    """
+    Retrieves the content of a folder and provides information about its elements.
+
+    :param path: The path of the folder.
+    :return: A tuple containing sorted element names, path, and information about each element.
+    """
     try:
         content = os.listdir(path)
 
@@ -21,6 +27,11 @@ def get_folder_content(path):
         print(f"A aparut o eroare {e}!!!!!!!")
 
 def get_only_folders_from_home():
+    """
+    Get the names of only the folders from the home directory.
+
+    :return: A list containing the names of the folders in the home directory.
+    """
     try:
         content = os.listdir(globals_instance.home_path)
         paths_of_elements = [os.path.join(globals_instance.home_path, element) for element in content]
@@ -34,6 +45,12 @@ def get_only_folders_from_home():
 
 
 def get_type_of_file(path):
+    """
+    Determines the type of file based on its extension.
+
+    :param path: The path of the file.
+    :return: A string representing the type of the file.
+    """
     img_extension = ['.jpg', '.png', '.jpeg', 'gif']
     exe_extension = ['.exe', '.bat', '.sh']
     archive_extension = ['.zip', '.tar', '.rar']
@@ -68,6 +85,12 @@ def get_icon_of_file(type_of_file):
 
 
 def get_element_information(path):
+    """
+    Retrieves information about the file or directory.
+
+    :param path: The path of the file or directory.
+    :return: A dictionary containing information such as type, size, and creation date.
+    """
     try:
         data = {}  # tip element, size, data crearii
 

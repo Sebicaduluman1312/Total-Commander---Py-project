@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module app.routes</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="app.html" class="white">app</a>.routes</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/sebastiandluman/Desktop/Total-Commander---Py-project/app/routes.py">/Users/sebastiandluman/Desktop/Total-Commander---Py-project/app/routes.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="copy.html">copy</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-copy_content"><strong>copy_content</strong></a>()</dt><dd><span class="code">Copies&nbsp;the&nbsp;content&nbsp;from&nbsp;one&nbsp;location&nbsp;to&nbsp;another.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;with&nbsp;success&nbsp;message&nbsp;or&nbsp;an&nbsp;error&nbsp;message.</span></dd></dl>
+ <dl><dt><a name="-create_file"><strong>create_file</strong></a>()</dt><dd><span class="code">Creates&nbsp;a&nbsp;new&nbsp;file.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;indicating&nbsp;the&nbsp;success&nbsp;or&nbsp;failure&nbsp;of&nbsp;the&nbsp;operation.</span></dd></dl>
+ <dl><dt><a name="-create_folder"><strong>create_folder</strong></a>()</dt><dd><span class="code">The&nbsp;specific&nbsp;function&nbsp;of&nbsp;the&nbsp;/create_folder&nbsp;route&nbsp;in&nbsp;which&nbsp;you&nbsp;receive&nbsp;from&nbsp;the&nbsp;front<br>
+the&nbsp;name&nbsp;of&nbsp;the&nbsp;folder&nbsp;that&nbsp;will&nbsp;be&nbsp;created&nbsp;and&nbsp;the&nbsp;panel&nbsp;in&nbsp;which&nbsp;we&nbsp;want&nbsp;to&nbsp;perform<br>
+the&nbsp;operation<br>
+&nbsp;<br>
+:return:&nbsp;return&nbsp;json&nbsp;to&nbsp;front</span></dd></dl>
+ <dl><dt><a name="-delete_elements"><strong>delete_elements</strong></a>()</dt><dd><span class="code">Deletes&nbsp;the&nbsp;selected&nbsp;elements&nbsp;from&nbsp;the&nbsp;specified&nbsp;panels.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;with&nbsp;success&nbsp;message&nbsp;or&nbsp;an&nbsp;error&nbsp;message.</span></dd></dl>
+ <dl><dt><a name="-edit_file"><strong>edit_file</strong></a>()</dt><dd><span class="code">Edits&nbsp;the&nbsp;content&nbsp;of&nbsp;a&nbsp;file.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;indicating&nbsp;the&nbsp;success&nbsp;or&nbsp;failure&nbsp;of&nbsp;the&nbsp;operation.</span></dd></dl>
+ <dl><dt><a name="-get_content"><strong>get_content</strong></a>()</dt><dd><span class="code">Gets&nbsp;the&nbsp;content&nbsp;of&nbsp;a&nbsp;file.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;with&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;file&nbsp;or&nbsp;an&nbsp;error&nbsp;message.</span></dd></dl>
+ <dl><dt><a name="-move_content"><strong>move_content</strong></a>()</dt><dd><span class="code">Moves&nbsp;the&nbsp;content&nbsp;from&nbsp;one&nbsp;location&nbsp;to&nbsp;another.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;with&nbsp;success&nbsp;message&nbsp;or&nbsp;an&nbsp;error&nbsp;message.</span></dd></dl>
+ <dl><dt><a name="-rename_element"><strong>rename_element</strong></a>()</dt><dd><span class="code">Renames&nbsp;an&nbsp;element.<br>
+&nbsp;<br>
+:return:&nbsp;JSON&nbsp;response&nbsp;indicating&nbsp;the&nbsp;success&nbsp;or&nbsp;failure&nbsp;of&nbsp;the&nbsp;operation.</span></dd></dl>
+ <dl><dt><a name="-render_main_page"><strong>render_main_page</strong></a>()</dt><dd><span class="code">The&nbsp;specific&nbsp;function&nbsp;for&nbsp;the&nbsp;'/'&nbsp;route&nbsp;in&nbsp;which&nbsp;the&nbsp;move&nbsp;from&nbsp;one&nbsp;folder&nbsp;to&nbsp;another<br>
+is&nbsp;practically&nbsp;made,&nbsp;we&nbsp;take&nbsp;the&nbsp;parameters&nbsp;from&nbsp;the&nbsp;url,&nbsp;so&nbsp;we&nbsp;keep&nbsp;track&nbsp;of&nbsp;the&nbsp;current<br>
+path&nbsp;that&nbsp;we&nbsp;store&nbsp;in&nbsp;it&nbsp;global&nbsp;variable.<br>
+When&nbsp;we&nbsp;are&nbsp;not&nbsp;on&nbsp;the&nbsp;home&nbsp;path&nbsp;on&nbsp;both&nbsp;panels,&nbsp;we&nbsp;will&nbsp;render&nbsp;to&nbsp;a&nbsp;different<br>
+template&nbsp;in&nbsp;which&nbsp;we&nbsp;get&nbsp;the&nbsp;elements&nbsp;from&nbsp;the&nbsp;left&nbsp;and&nbsp;right&nbsp;panels,&nbsp;after&nbsp;which&nbsp;we<br>
+process&nbsp;them&nbsp;with&nbsp;Jinja&nbsp;on&nbsp;the&nbsp;html<br>
+&nbsp;<br>
+:return:&nbsp;render_template</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>app</strong> = &lt;Flask 'app'&gt;<br>
+<strong>globals_instance</strong> = &lt;app.utils.globals.GlobalVariables object&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

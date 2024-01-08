@@ -1,6 +1,18 @@
 import os
 from app.utils.globals import globals_instance
+
 def delete_panel_elements(left_panel, right_panel, left_path, right_path):
+    """
+    Delete service, it deletes recursevly items from a directory, after that the funtion remove the directory per se.
+    It goes from every checked element from every panel
+
+    :param left_panel: - is a vector of checked elements from left panel
+    :param right_panel: - is a vector of checked elements from right panel
+    :param left_path: - the current path of the left panel
+    :param right_path: - the current path of the right panel
+    :return: nothing
+
+    """
     for elem in left_panel:
         create_path = left_path + '/'
         full_path = os.path.join(create_path, elem)
@@ -37,6 +49,13 @@ def delete_panel_elements(left_panel, right_panel, left_path, right_path):
 
 
 def rename_element_path(old_name, new_name):
+    """
+    Is a function that rename an element from a path. It recieves two names, it makes full path
+
+    :param old_name: - represents the name of selected element
+    :param new_name: - represents the new name of element
+
+    """
     current_path_choice1 = globals_instance.current_path_left + '/' + old_name
     current_path_choice2 = globals_instance.current_path_right + '/' + old_name
 
@@ -54,10 +73,11 @@ def rename_element_path(old_name, new_name):
 
 def recursive_copy(start, end):
     """
+    Recursively copies files and directories from the 'start' path to the 'end' path.
 
-        :param:
-        :param: 
-        :return: nothing
+    :param start: The source path (file or directory) to be copied.
+    :param end: The destination path where the content from 'start' will be copied.
+    :return: None
     """
     for route in start:
         try:
@@ -94,6 +114,12 @@ def recursive_copy(start, end):
 
 
 def get_file_content(path):
+    """
+    Reads the content of a file specified by the provided path.
+
+    :param path: The path to the file.
+    :return: The content of the file as a string if successful, None otherwise.
+    """
     try:
         with open(path, 'r') as file_desc:
             content = file_desc.read()
@@ -105,6 +131,13 @@ def get_file_content(path):
         print(f"Eroare la obtine content file: {e}!")
         return None
 def write_file_content(path, content):
+    """
+    Writes the provided content to a file specified by the provided path.
+
+    :param path: The path to the file.
+    :param content: The content to be written to the file.
+    :return: None if successful, or an error message if an exception occurs.
+    """
     try:
         with open(path, 'w') as file_desc:
             file_desc.write(content)
