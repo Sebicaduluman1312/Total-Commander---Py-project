@@ -175,6 +175,7 @@ input{
     cursor: pointer;
 }
 
+.modal-rename,
 .modal-file,
 .modal-folder {
     display: none;
@@ -186,8 +187,9 @@ input{
     background-color: rgba(0,0,0,0.7);
   }
 
-  .create-file-content,
-  .create-folder-content{
+.create-rename-content,
+.create-file-content,
+.create-folder-content{
     height: 25%;
     width: 35%;
     background-color: #999999;
@@ -196,15 +198,17 @@ input{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+}
 
-  .submit-name,
-  .submit-name-file{
+.submit-name-rename-file,
+.submit-name,
+.submit-name-file{
     margin-top: 10px;
-  }
+}
 
-  .close-modal,
-  .close-modal-file{
+.close-modal,
+.close-modal-rename,
+.close-modal-file{
     height: 40px;
     width: 70px;
     border-radius: 15px;
@@ -216,15 +220,17 @@ input{
     margin-bottom: 40px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .close-modal-file:hover,
-  .close-modal:hover{
+.close-modal-rename:hover,
+.close-modal-file:hover,
+.close-modal:hover{
     background-color: #2980b9;
-  }
+}
 
-  #newFile,
-  #newFolder{
+#selector-panel-file-rename,
+#newFile,
+#newFolder{
     margin: 10px 0 10px;
-  }
+}
 

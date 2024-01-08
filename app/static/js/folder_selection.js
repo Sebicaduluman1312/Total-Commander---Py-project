@@ -119,6 +119,15 @@ checkboxes.forEach(function(checkbox) {
       }
 
     } else {
+        const indexLeft = left_panel_selected_items.indexOf(checkbox.name);
+            if (indexLeft !== -1) {
+                left_panel_selected_items.splice(indexLeft, 1);
+            }
+
+            const indexRight = right_panel_selected_items.indexOf(checkbox.name);
+            if (indexRight !== -1) {
+                right_panel_selected_items.splice(indexRight, 1);
+            }
     }
 
     console.log('left_panel_selected_items:', left_panel_selected_items);

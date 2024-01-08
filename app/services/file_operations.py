@@ -33,3 +33,18 @@ def delete_panel_elements(left_panel, right_panel, left_path, right_path):
         except Exception as e:
             print("Eroare la functia de stergere a elementelor!")
 
+
+def rename_element_path(old_name, new_name):
+    current_path_choice1 = globals_instance.current_path_left + '/' + old_name
+    current_path_choice2 = globals_instance.current_path_right + '/' + old_name
+
+    print(current_path_choice1, current_path_choice2)
+    try:
+        if os.path.exists(current_path_choice1):
+            new_path = globals_instance.current_path_left + '/' + new_name
+            os.rename(current_path_choice1, new_path)
+        else:
+            new_path = globals_instance.current_path_right + '/' + new_name
+            os.rename(current_path_choice2, new_path)
+    except Exception as e:
+        print("Eroare la functia de rename a elementului!")

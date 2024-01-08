@@ -3,7 +3,7 @@ from app import app
 from flask import render_template
 from app.services.file_services import get_folder_content
 from app.services.create_operations import create_folder_path, create_file_path
-from app.services.file_operations import delete_panel_elements
+from app.services.file_operations import delete_panel_elements, rename_element_path
 from app.utils.globals import globals_instance
 from flask import request, jsonify
 
@@ -72,3 +72,11 @@ def create_file():
 #     data = request.get_json()
 #     delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
 #     return jsonify({"status" : "succes", "message" : "The files was succesfully deleted"})
+
+@app.route("/rename", methods=["GET","POST"])
+def rename_element():
+    data = request.get_json()
+
+    rename_element_path(data['old_value'], data['rename_value'])
+
+    return jsonify({"status" : "succes", "message" : "The element was succesfully renamed"})
