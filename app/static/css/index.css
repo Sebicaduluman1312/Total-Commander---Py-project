@@ -175,6 +175,7 @@ input{
     cursor: pointer;
 }
 
+.modal-edit,
 .modal-rename,
 .modal-file,
 .modal-folder {
@@ -186,6 +187,7 @@ input{
     height: 100%;
     background-color: rgba(0,0,0,0.7);
   }
+
 
 .create-rename-content,
 .create-file-content,
@@ -200,12 +202,14 @@ input{
     flex-direction: column;
 }
 
+.submit-edit,
 .submit-name-rename-file,
 .submit-name,
 .submit-name-file{
     margin-top: 10px;
 }
 
+.close-modal-edit,
 .close-modal,
 .close-modal-rename,
 .close-modal-file{
@@ -222,6 +226,7 @@ input{
     transition: background-color 0.3s ease;
 }
 
+.close-modal-edit:hover,
 .close-modal-rename:hover,
 .close-modal-file:hover,
 .close-modal:hover{
@@ -234,3 +239,28 @@ input{
     margin: 10px 0 10px;
 }
 
+
+.edit-content{
+    height: 75%;
+    width: 50%;
+    background-color: #999999;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-of-file{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    height: 100%;
+    width: 80%;
+    color: black;
+}

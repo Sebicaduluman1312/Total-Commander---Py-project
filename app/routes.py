@@ -3,7 +3,7 @@ from app import app
 from flask import render_template
 from app.services.file_services import get_folder_content
 from app.services.create_operations import create_folder_path, create_file_path
-from app.services.file_operations import delete_panel_elements, rename_element_path, recursive_copy
+from app.services.file_operations import delete_panel_elements, rename_element_path, recursive_copy, get_file_content, write_file_content
 from app.utils.globals import globals_instance
 from flask import request, jsonify
 
@@ -87,7 +87,7 @@ def copy_content():
 
     recursive_copy(data["start_path"], data["end_path"])
 
-    return jsonify({"status" : "succes", "message" : "The element was copied renamed"})
+    return jsonify({"status" : "succes", "message" : "The element was copied"})
 
 @app.route("/move", methods=["GET","POST"])
 def move_content():
@@ -96,4 +96,32 @@ def move_content():
     recursive_copy(data["start_path"], data["end_path"])
     delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
 
-    return jsonify({"status" : "succes", "message" : "The element was copied renamed"})
+    return jsonify({"status" : "succes", "message" : "The element was moved renamed"})
+
+@app.route("/get_content", methods=["GET","POST"])
+def get_content():
+    data = request.get_json()
+
+    path = data['path']
+    content_of_file = get_file_content(path)
+    print(content_of_file)
+
+
+    if content_of_file is None:
+        return jsonify({"status" : "error", "message" : "Eroare la citirea fisierului"})
+    else:
+        return jsonify({"status" : "succes", "content" : content_of_file})
+
+    return jsonify({"status" : "succes", "message" : "The element was moved renamed"})
+
+
+@app.route("/edit_file", methods=["GET","POST"])
+def edit_file():
+    data = request.get_json()
+
+    print(data)
+    path = data['path']
+    info = data['content_to']
+    write_file_content(path, info)
+
+    return jsonify({"status" : "succes", "message" : "The file was succesfuly edited"})

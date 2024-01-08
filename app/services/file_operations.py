@@ -82,6 +82,28 @@ def recursive_copy(start, end):
                     destination_file_desc.write(content)
 
         except Exception as e:
-            print(f"A apărut o eroare la copiere: {e} pentru sursa: {route}")
+            print(f"A aparut o eroare la copiere: {e} pentru sursa: {route}")
 
+
+def get_file_content(path):
+    try:
+        with open(path, 'r') as file_desc:
+            content = file_desc.read()
+        return content
+    except FileNotFoundError:
+        print(f"Fisierul {path} nu a fost gasit")
+        return None
+    except Exception as e:
+        print(f"Eroare la obtine content file: {e}!")
+        return None
+def write_file_content(path, content):
+    try:
+        with open(path, 'w') as file_desc:
+            file_desc.write(content)
+    except FileNotFoundError:
+        print(f"Fisierul {path} nu a fost gasit")
+        return None
+    except Exception as e:
+        print(f"Eroare la obtine content file: {e}!")
+        return None
 
