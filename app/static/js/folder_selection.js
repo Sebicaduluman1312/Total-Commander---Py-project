@@ -19,15 +19,25 @@ selectedFolders.forEach(function(selectedFolder) {
             var leftPath = currentPath1;
             var rightPath = currentPath2;
             const url = `http://localhost:8000/?leftPath=${encodeURIComponent(leftPath)}&rightPath=${encodeURIComponent(rightPath)}`;
-            window.location.href = url
+            
+            parent_info = selectedFolder.parentNode
+            var info_f = parent_info.querySelector(".information")
+            if ((info_f.innerText).includes('DIR')){
+                window.location.href = url
+                fetch(url, { mode: 'no-cors' })
+                .then(() => {
+                    console.log('Request-ul a fost trimis cu succes.');
+                })
+                .catch(error => {
+                    console.error('Eroare în timpul request-ului:', error);
+                });
+            }
+            else
+            {
+                alert("You need to select a o folder!!!")
+                window.location.reload()
+            }
 
-            fetch(url, { mode: 'no-cors' })
-            .then(() => {
-                console.log('Request-ul a fost trimis cu succes.');
-            })
-            .catch(error => {
-                console.error('Eroare în timpul request-ului:', error);
-            });
 
         }
         else{
@@ -40,13 +50,24 @@ selectedFolders.forEach(function(selectedFolder) {
             const url = `http://localhost:8000/?leftPath=${encodeURIComponent(leftPath)}&rightPath=${encodeURIComponent(rightPath)}`;
             window.location.href = url
 
-            fetch(url, { mode: 'no-cors' })
-            .then(() => {
-                console.log('Request-ul a fost trimis cu succes.');
-            })
-            .catch(error => {
-                console.error('Eroare în timpul request-ului:', error);
-            });
+            parent_info = selectedFolder.parentNode
+            var info_f = parent_info.querySelector(".information")
+            if ((info_f.innerText).includes('DIR')){
+                window.location.href = url
+                fetch(url, { mode: 'no-cors' })
+                .then(() => {
+                    console.log('Request-ul a fost trimis cu succes.');
+                })
+                .catch(error => {
+                    console.error('Eroare în timpul request-ului:', error);
+                });
+            }
+            else
+            {
+                alert("You need to select a o folder!!!")
+                window.location.reload()
+            }
+            
         }
 
     });
