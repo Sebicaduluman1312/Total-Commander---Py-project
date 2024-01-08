@@ -8,12 +8,22 @@ var currentPath2 = pathSelector2.value
 
 var selectedFolders = document.querySelectorAll(".name");
 
+function isValidUrl(url) {
+    try {
+        new URL(url);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
 selectedFolders.forEach(function(selectedFolder) {
     selectedFolder.addEventListener('click', function() {
 
         if(selectedFolder.parentNode.parentNode.className == 'left-panel-list'){
 
             currentPath1 += "/" + selectedFolder.innerText
+            
             console.log("primul cadran", currentPath1)
 
             var leftPath = currentPath1;
@@ -23,7 +33,12 @@ selectedFolders.forEach(function(selectedFolder) {
             parent_info = selectedFolder.parentNode
             var info_f = parent_info.querySelector(".information")
             if ((info_f.innerText).includes('DIR')){
-                window.location.href = url
+                
+                if (isValidUrl(url)) {
+                    window.location.href = url;
+                } else {
+                    console.error("URL-ul nu este valid.");
+                }
                 fetch(url, { mode: 'no-cors' })
                 .then(() => {
                     console.log('Request-ul a fost trimis cu succes.');
@@ -31,6 +46,8 @@ selectedFolders.forEach(function(selectedFolder) {
                 .catch(error => {
                     console.error('Eroare în timpul request-ului:', error);
                 });
+
+
             }
             else
             {
@@ -48,12 +65,17 @@ selectedFolders.forEach(function(selectedFolder) {
             var leftPath = currentPath1;
             var rightPath = currentPath2;
             const url = `http://localhost:8000/?leftPath=${encodeURIComponent(leftPath)}&rightPath=${encodeURIComponent(rightPath)}`;
-            window.location.href = url
 
             parent_info = selectedFolder.parentNode
             var info_f = parent_info.querySelector(".information")
             if ((info_f.innerText).includes('DIR')){
-                window.location.href = url
+
+                if (isValidUrl(url)) {
+                    window.location.href = url;
+                } else {
+                    console.error("URL-ul nu este valid.");
+                }
+
                 fetch(url, { mode: 'no-cors' })
                 .then(() => {
                     console.log('Request-ul a fost trimis cu succes.');

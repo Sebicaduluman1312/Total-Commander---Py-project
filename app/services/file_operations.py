@@ -9,11 +9,12 @@ def delete_panel_elements(left_panel, right_panel, left_path, right_path):
                 elements = os.listdir(full_path)
                 new_left_path = full_path
                 delete_panel_elements(elements, right_panel, new_left_path, right_path)
-                os.rmdir(full_path)
+                if os.path.exists(full_path):
+                    os.rmdir(full_path)
             else:
                 if os.path.exists(full_path):
-                        print(full_path)
-                        os.remove(full_path)
+                    print(full_path)
+                    os.remove(full_path)
         except Exception as e:
             print("Eroare la functia de stergere a elementelor!")
 
@@ -25,7 +26,8 @@ def delete_panel_elements(left_panel, right_panel, left_path, right_path):
                 elements = os.listdir(full_path)
                 new_right_path = full_path
                 delete_panel_elements(left_panel, elements, left_path, new_right_path)
-                os.rmdir(full_path)
+                if os.path.exists(full_path):
+                    os.rmdir(full_path)
             else:
                 if os.path.exists(full_path):
                     print(full_path)
@@ -51,6 +53,12 @@ def rename_element_path(old_name, new_name):
 
 
 def recursive_copy(start, end):
+    """
+
+        :param:
+        :param: 
+        :return: nothing
+    """
     for route in start:
         try:
             if os.path.isdir(route):

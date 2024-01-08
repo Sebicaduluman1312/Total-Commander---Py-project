@@ -17,8 +17,8 @@ def get_folder_content(path):
 
         return sorted_elements_name, path, elements_information
 
-    except FileNotFoundError:
-        print("Directorul nu a fost gasit!")
+    except Exception as e:
+        print(f"A aparut o eroare {e}!!!!!!!")
 
 def get_only_folders_from_home():
     try:
