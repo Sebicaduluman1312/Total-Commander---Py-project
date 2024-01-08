@@ -3,7 +3,7 @@ from app import app
 from flask import render_template
 from app.services.file_services import get_folder_content
 from app.services.create_operations import create_folder_path, create_file_path
-from app.services.file_operations import delete_panel_elements, rename_element_path
+from app.services.file_operations import delete_panel_elements, rename_element_path, recursive_copy
 from app.utils.globals import globals_instance
 from flask import request, jsonify
 
@@ -80,3 +80,11 @@ def rename_element():
     rename_element_path(data['old_value'], data['rename_value'])
 
     return jsonify({"status" : "succes", "message" : "The element was succesfully renamed"})
+
+@app.route("/copy", methods=["GET","POST"])
+def copy_files():
+    data = request.get_json()
+
+    recursive_copy(data["start_path"], data["end_path"])
+
+    return jsonify({"status" : "succes", "message" : "The element was copied renamed"})
