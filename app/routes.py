@@ -161,7 +161,7 @@ def move_content():
     recursive_copy(data["start_path"], data["end_path"])
     delete_panel_elements(data['left_panel'],data['right_panel'], globals_instance.current_path_left, globals_instance.current_path_right)
 
-    return jsonify({"status" : "succes", "message" : "The element was moved renamed"})
+    return jsonify({"status" : "succes", "message" : "The element was moved"})
 
 @app.route("/get_content", methods=["GET","POST"])
 def get_content():
@@ -180,8 +180,6 @@ def get_content():
         return jsonify({"status" : "error", "message" : "Eroare la citirea fisierului"})
     else:
         return jsonify({"status" : "succes", "content" : content_of_file})
-
-    return jsonify({"status" : "succes", "message" : "The element was moved renamed"})
 
 
 @app.route("/edit_file", methods=["GET","POST"])

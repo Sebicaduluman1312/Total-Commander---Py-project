@@ -64,7 +64,7 @@ def rename_element_path(old_name, new_name, panel):
     else:
         old_path = globals_instance.current_path_right + '/' + old_name
         new_path = globals_instance.current_path_right + '/' + new_name
-        
+
     try:
         os.rename(old_path, new_path)
     except Exception as e:
@@ -97,14 +97,16 @@ def recursive_copy(start, end):
                     content = original_file_desc.read()
 
                 nume_fisier, _ = os.path.splitext(os.path.basename(route))
-                write_route = os.path.join(end, nume_fisier)
+
+                write_route = os.path.join(end, nume_fisier) + os.path.splitext(route)[1]
+                if os.path.exists(write_route + os.path.splitext(route)[1]):
+                    write_route = os.path.join(end, nume_fisier) + os.path.splitext(route)[1]
 
                 i = 1
                 while os.path.exists(write_route):
-                    write_route = os.path.join(end, f"{nume_fisier}_{i}")
+                    write_route = os.path.join(end, f"{nume_fisier}_{i}") + os.path.splitext(route)[1]
                     i += 1
 
-                write_route += os.path.splitext(route)[1]
 
                 with open(write_route, 'wb') as destination_file_desc:
                     destination_file_desc.write(content)
