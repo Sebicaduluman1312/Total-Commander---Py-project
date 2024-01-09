@@ -132,7 +132,7 @@ def rename_element():
     """
     data = request.get_json()
 
-    rename_element_path(data['old_value'], data['rename_value'])
+    rename_element_path(data['old_value'], data['rename_value'], data['c_panel'])
 
     return jsonify({"status" : "succes", "message" : "The element was succesfully renamed"})
 

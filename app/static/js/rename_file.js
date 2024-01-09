@@ -15,16 +15,21 @@ rnmBtn.addEventListener('click', function(){
         var close = document.querySelector(".close-modal-rename")
 
         submit.addEventListener('click', function(){
-            var old_name
-            if (left_panel_selected_items.length == 1)
+            var old_name, panel 
+            if (left_panel_selected_items.length == 1){
                 old_name = left_panel_selected_items[0]
-            else if (righ_panel_selected_items.length == 1)
+                panel = 1
+            }
+            else if (right_panel_selected_items.length == 1)
+            {
                 old_name = right_panel_selected_items[0] 
-
+                panel = 2
+            }
             let newName = document.getElementById("newRenameFile")
             let data_to_send = {
                 old_value: old_name, 
-                rename_value : newName.value 
+                rename_value : newName.value,
+                c_panel : panel 
             }
                         
 
